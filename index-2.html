@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>รูปแบบที่ 2: Card Design (เพิ่มลำดับ)</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Sarabun:wght@400;600;700&display=swap');
+        body {
+            font-family: 'Sarabun', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 p-8">
+
+    <div class="container max-w-6xl mx-auto">
+        <h2 class="text-3xl font-bold text-center text-blue-800 mb-2">รายชื่อนิสิตที่จัดส่งงานสารนิพนธ์</h2>
+        <h3 class="text-xl text-center text-gray-600 mb-10">วิชาระเบียบวิธีวิจัยชั้นสูง (รศ.ดร.ทวีศักดิ์ ทองทิพย์)</h3>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden flex flex-col relative">
+                <div class="absolute top-4 right-4 bg-blue-100 text-blue-800 w-10 h-10 flex items-center justify-center rounded-full text-lg font-bold">
+                    1
+                </div>
+                <div class="p-6 flex-grow">
+                    <span class="bg-gray-100 text-gray-600 text-xs font-semibold px-2.5 py-0.5 rounded">๖๘๐๙๑๐๕๐๐๘</span>
+                    <h4 class="text-lg font-bold text-gray-900 my-2">พระบุญเสร็จ มีแก้ว (จนฺทสาโร)</h4>
+                    <p class="text-gray-700 text-sm">
+                        เรื่อง: การปรับใช้หลักไตรสิกขาในการดำเนินชีวิตของผู้สูงอายุหมู่บ้านรักษาศีล ๕ อำเภอสังขะ จังหวัดสุรินทร์
+                    </p>
+                </div>
+                <div class="p-4 bg-gray-50 border-t border-gray-200">
+                    <div class="flex justify-center gap-4">
+                        <a href="files/6809105008.docx" class="flex-1 bg-blue-600 hover:bg-blue-700 text-white text-center font-bold py-2 px-4 rounded-full transition duration-300" download>
+                            DOC
+                        </a>
+                        <a href="files/6809105008.pdf" class="flex-1 bg-red-600 hover:bg-red-700 text-white text-center font-bold py-2 px-4 rounded-full transition duration-300" download>
+                            PDF
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden flex flex-col relative">
+                <div class="absolute top-4 right-4 bg-blue-100 text-blue-800 w-10 h-10 flex items-center justify-center rounded-full text-lg font-bold">
+                    2
+                </div>
+                <div class="p-6 flex-grow">
+                    <span class="bg-gray-100 text-gray-600 text-xs font-semibold px-2.5 py-0.5 rounded">๖๘๐๙๑๐๕๐๐๓</span>
+                    <h4 class="text-lg font-bold text-gray-900 my-2">พระมหาศิริพงศ์ ไกรสรพันธ์ (จนฺทปาโมชฺโช)</h4>
+                    <p class="text-gray-700 text-sm">
+                        เรื่อง: กระบวนการเผยแผ่พุทธธรรมผ่านสื่อออนไลน์ของพระสงฆ์ภาคอีสานใต้ในยุคดิจิทัล
+                    </p>
+                </div>
+                <div class="p-4 bg-gray-50 border-t border-gray-200">
+                    <div class="flex justify-center gap-4">
+                        <a href="files/6809105003.docx" class="flex-1 bg-blue-600 hover:bg-blue-700 text-white text-center font-bold py-2 px-4 rounded-full transition duration-300" download>
+                            DOC
+                        </a>
+                        <a href="files/6809105003.pdf" class="flex-1 bg-red-600 hover:bg-red-700 text-white text-center font-bold py-2 px-4 rounded-full transition duration-300" download>
+                            PDF
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden flex flex-col relative">
+                <div class="absolute top-4 right-4 bg-blue-100 text-blue-800 w-10 h-10 flex items-center justify-center rounded-full text-lg font-bold">
+                    3
+                </div>
+                <div class="p-6 flex-grow">
+                    <span class="bg-gray-100 text-gray-600 text-xs font-semibold px-2.5 py-0.5 rounded">๖๘๐๙๑๐๕๐๑๐</span>
+                    <h4 class="text-lg font-bold text-gray-900 my-2">พระมหาปราชญ์ ก้อนเพชร (ชาคโร)</h4>
+                    <p class="text-gray-700 text-sm">
+                        เรื่อง: ศึกษาจริยธรรมเชิงพุทธในการใช้เทคโนโลยีปัญญาประดิษฐ์
+                    </p>
+                </div>
+                <div class="p-4 bg-gray-50 border-t border-gray-200">
+                    <div class="flex justify-center gap-4">
+                        <a href="files/6809105010.docx" class="flex-1 bg-blue-600 hover:bg-blue-700 text-white text-center font-bold py-2 px-4 rounded-full transition duration-300" download>
+                            DOC
+                        </a>
+                        <a href="files/6809105010.pdf" class="flex-1 bg-red-600 hover:bg-red-700 text-white text-center font-bold py-2 px-4 rounded-full transition duration-300" download>
+                            PDF
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden flex flex-col relative">
+                <div class="absolute top-4 right-4 bg-blue-100 text-blue-800 w-10 h-10 flex items-center justify-center rounded-full text-lg font-bold">
+                    4
+                </div>
+                <div class="p-6 flex-grow">
+                    <span class="bg-gray-100 text-gray-600 text-xs font-semibold px-2.5 py-0.5 rounded">๖๘๐๙๑๐๕๐๐๔</span>
+                    <h4 class="text-lg font-bold text-gray-900 my-2">พระครูพิพัฒน์กิจจานุรักษ์ นวลคนึง (สีลสํวโร)</h4>
+                    <p class="text-gray-700 text-sm">
+                        เรื่อง: การเปรียบเทียบบทบาทพระอินทร์ในพระพุทธศาสนาและพราหมณ์-ฮินดู
+                    </p>
+                </div>
+                <div class="p-4 bg-gray-50 border-t border-gray-200">
+                    <div class="flex justify-center gap-4">
+                        <a href="files/6809105004.docx" class="flex-1 bg-blue-600 hover:bg-blue-700 text-white text-center font-bold py-2 px-4 rounded-full transition duration-300" download>
+                            DOC
+                        </a>
+                        <a href="files/6809105004.pdf" class="flex-1 bg-red-600 hover:bg-red-700 text-white text-center font-bold py-2 px-4 rounded-full transition duration-300" download>
+                            PDF
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden flex flex-col relative">
+                <div class="absolute top-4 right-4 bg-blue-100 text-blue-800 w-10 h-10 flex items-center justify-center rounded-full text-lg font-bold">
+                    5
+                </div>
+                <div class="p-6 flex-grow">
+                    <span class="bg-gray-100 text-gray-600 text-xs font-semibold px-2.5 py-0.5 rounded">๖๘๐๙๑๐๕๐๑๓</span>
+                    <h4 class="text-lg font-bold text-gray-900 my-2">นางอัจฉรา มาอินทร์</h4>
+                    <p class="text-gray-700 text-sm">
+                        เรื่อง: การพัฒนาภาวะผู้นำเชิงจริยธรรมของผู้บริหารสถานศึกษาโรงเรียนในเครือข่ายสุรินทร์เมือง ๒
+                    </p>
+                </div>
+                <div class="p-4 bg-gray-50 border-t border-gray-200">
+                    <div class="flex justify-center gap-4">
+                        <a href="files/6809105013.docx" class="flex-1 bg-blue-600 hover:bg-blue-700 text-white text-center font-bold py-2 px-4 rounded-full transition duration-300" download>
+                            DOC
+                        </a>
+                        <a href="files/6809105013.pdf" class="flex-1 bg-red-600 hover:bg-red-700 text-white text-center font-bold py-2 px-4 rounded-full transition duration-300" download>
+                            PDF
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden flex flex-col relative">
+                <div class="absolute top-4 right-4 bg-blue-100 text-blue-800 w-10 h-10 flex items-center justify-center rounded-full text-lg font-bold">
+                    6
+                </div>
+                <div class="p-6 flex-grow">
+                    <span class="bg-gray-100 text-gray-600 text-xs font-semibold px-2.5 py-0.5 rounded">๖๘๐๙๑๐๕๐๐๑</span>
+                    <h4 class="text-lg font-bold text-gray-900 my-2">พระศักดิ์สิทธิ์ ศรีสุข (พุทฺธปุตฺโต)</h4>
+                    <p class="text-gray-700 text-sm">
+                        เรื่อง: แนวทางปฏิบัติวิปัสสนากัมมัฏฐาน ตามหลักสติปัฏฐาน ๔ สำนักปฏิบัติธรรม...
+                    </p>
+                </div>
+                <div class="p-4 bg-gray-50 border-t border-gray-200">
+                    <div class="flex justify-center gap-4">
+                        <a href="files/6809105001.docx" class="flex-1 bg-blue-600 hover:bg-blue-700 text-white text-center font-bold py-2 px-4 rounded-full transition duration-300" download>
+                            DOC
+                        </a>
+                        <a href="files/6809105001.pdf" class="flex-1 bg-red-600 hover:bg-red-700 text-white text-center font-bold py-2 px-4 rounded-full transition duration-300" download>
+                            PDF
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden flex flex-col relative">
+                <div class="absolute top-4 right-4 bg-blue-100 text-blue-800 w-10 h-10 flex items-center justify-center rounded-full text-lg font-bold">
+                    7
+                </div>
+                <div class="p-6 flex-grow">
+                    <span class="bg-gray-100 text-gray-600 text-xs font-semibold px-2.5 py-0.5 rounded">๖๘๐๙๑๐๕๐๐๗</span>
+                    <h4 class="text-lg font-bold text-gray-900 my-2">พระสุรกาญจน์ สุทธิดี (โชติปญฺโญ)</h4>
+                    <p class="text-gray-700 text-sm">
+                        เรื่อง: สมาธิในพุทธศาสนาเถรวาทกับการพัฒนาปัญญา
+                    </p>
+                </div>
+                <div class="p-4 bg-gray-50 border-t border-gray-200">
+                    <div class="flex justify-center gap-4">
+                        <a href="files/6809105007.docx" class="flex-1 bg-blue-600 hover:bg-blue-700 text-white text-center font-bold py-2 px-4 rounded-full transition duration-300" download>
+                            DOC
+                        </a>
+                        <a href="files/6809105007.pdf" class="flex-1 bg-red-600 hover:bg-red-700 text-white text-center font-bold py-2 px-4 rounded-full transition duration-300" download>
+                            PDF
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden flex flex-col relative">
+                <div class="absolute top-4 right-4 bg-blue-100 text-blue-800 w-10 h-10 flex items-center justify-center rounded-full text-lg font-bold">
+                    8
+                </div>
+                <div class="p-6 flex-grow">
+                    <span class="bg-gray-100 text-gray-600 text-xs font-semibold px-2.5 py-0.5 rounded">๖๘๐๙๑๐๕๐๐๒</span>
+                    <h4 class="text-lg font-bold text-gray-900 my-2">พระอธิการประเสริฐ จันทอง (ปภาโส)</h4>
+                    <p class="text-gray-700 text-sm">
+                        เรื่อง: รูปแบบการจัดการภูมิปัญญาท้องถิ่นของชาวพุทธกลุ่มชาติพันธ์กูยในจังหวัดสุรินทร์
+                    </p>
+                </div>
+                <div class="p-4 bg-gray-50 border-t border-gray-200">
+                    <div class="flex justify-center gap-4">
+                        <a href="files/6809105002.docx" class="flex-1 bg-blue-600 hover:bg-blue-700 text-white text-center font-bold py-2 px-4 rounded-full transition duration-300" download>
+                            DOC
+                        </a>
+                        <a href="files/6809105002.pdf" class="flex-1 bg-red-600 hover:bg-red-700 text-white text-center font-bold py-2 px-4 rounded-full transition duration-300" download>
+                            PDF
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden flex flex-col relative">
+                <div class="absolute top-4 right-4 bg-blue-100 text-blue-800 w-10 h-10 flex items-center justify-center rounded-full text-lg font-bold">
+                    9
+                </div>
+                <div class="p-6 flex-grow">
+                    <span class="bg-gray-100 text-gray-600 text-xs font-semibold px-2.5 py-0.5 rounded">๖๘๐๙๑๐๕๐๐๕</span>
+                    <h4 class="text-lg font-bold text-gray-900 my-2">พระครูวินัยธรโกมินทร์ เตียแอก (สุโกวิโท)</h4>
+                    <p class="text-gray-700 text-sm">
+                        เรื่อง: อิทธิพลของเทคโนโลยีดิจิทัลในการสืบสานหลักธรรมทางพระพุทธศาสนาในสังคมไทยยุคปัจจุบัน
+                    </p>
+                </div>
+                <div class="p-4 bg-gray-50 border-t border-gray-200">
+                    <div class="flex justify-center gap-4">
+                        <a href="files/6809105005.docx" class="flex-1 bg-blue-600 hover:bg-blue-700 text-white text-center font-bold py-2 px-4 rounded-full transition duration-300" download>
+                            DOC
+                        </a>
+                        <a href="files/6809105005.pdf" class="flex-1 bg-red-600 hover:bg-red-700 text-white text-center font-bold py-2 px-4 rounded-full transition duration-300" download>
+                            PDF
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden flex flex-col relative">
+                <div class="absolute top-4 right-4 bg-blue-100 text-blue-800 w-10 h-10 flex items-center justify-center rounded-full text-lg font-bold">
+                    10
+                </div>
+                <div class="p-6 flex-grow">
+                    <span class="bg-gray-100 text-gray-600 text-xs font-semibold px-2.5 py-0.5 rounded">๖๘๐๙๑๐๕๐๑๑</span>
+                    <h4 class="text-lg font-bold text-gray-900 my-2">พระพิเรศ เข้าเมือง (พุทฺธญาโณ)</h4>
+                    <p class="text-gray-700 text-sm">
+                        เรื่อง: "ต้นแบบการพัฒนาวัดอุทยานการศึกษาของคณะสงฆ์อำเภอเมือง จังหวัดสุรินทร์"
+                    </p>
+                </div>
+                <div class="p-4 bg-gray-50 border-t border-gray-200">
+                    <div class="flex justify-center gap-4">
+                        <a href="files/6809105011.docx" class="flex-1 bg-blue-600 hover:bg-blue-700 text-white text-center font-bold py-2 px-4 rounded-full transition duration-300" download>
+                            DOC
+                        </a>
+                        <a href="files/6809105011.pdf" class="flex-1 bg-red-600 hover:bg-red-700 text-white text-center font-bold py-2 px-4 rounded-full transition duration-300" download>
+                            PDF
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            </div>
+
+        <div class="text-center text-gray-600 mt-10">
+            <p><strong>หมายเหตุ:</strong> ลำดับรายชื่อจัดเรียงลำดับตามการส่งงานก่อน-หลัง</p>
+            <p>ข้อมูล ณ วันที่ ๑๓ พฤศจิกายน ๒๕๖๘</p>
+        </div>
+
+    </div>
+
+</body>
+</html>
