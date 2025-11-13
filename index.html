@@ -3,10 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>:: รายชื่อนิสิตที่จัดส่งงานสารนิพนธ์ วิชาระเบียบวิธีวิจัยชั้นสูง (รศ.ดร.ทวีศักดิ์ ทองทิพย์) | Card Design (Dynamic Vue.js) ::</title>
+    <title>:: รายชื่อนิสิตที่จัดส่งงานสารนิพนธ์ วิชาระเบียบวิธีวิจัยชั้นสูง (รศ.ดร.ทวีศักดิ์ ทองทิพย์) ::</title>
     
     <script src="https://cdn.tailwindcss.com"></script>
-    
     <script src="https://unpkg.com/vue@3/dist/vue.esm-browser.js" type="module"></script>
     
     <style>
@@ -23,9 +22,27 @@
         <h2 class="text-3xl font-bold text-center text-blue-800 mb-2">รายชื่อนิสิตที่จัดส่งงานสารนิพนธ์</h2>
         <h3 class="text-xl text-center text-gray-600 mb-10">วิชาระเบียบวิธีวิจัยชั้นสูง (รศ.ดร.ทวีศักดิ์ ทองทิพย์)</h3>
 
+        <div class="mb-8 max-w-2xl mx-auto">
+            <div class="relative">
+                <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                    <svg class="w-5 h-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
+                    </svg>
+                </div>
+                
+                <input 
+                    type="text" 
+                    v-model="searchQuery"
+                    placeholder="ค้นหา (รหัสนิสิต, ชื่อ, หรือชื่อเรื่องสารนิพนธ์)"
+                    class="w-full py-3 pr-4 pl-12 border border-gray-300 rounded-full shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                >
+            </div>
+        </div>
+
+
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             
-            <div v-for="student in students" :key="student.id" class="bg-white rounded-lg shadow-lg overflow-hidden flex flex-col relative">
+            <div v-for="student in filteredStudents" :key="student.id" class="bg-white rounded-lg shadow-lg overflow-hidden flex flex-col relative">
                 
                 <div class="absolute top-4 right-4 bg-blue-100 text-blue-800 w-10 h-10 flex items-center justify-center rounded-full text-lg font-bold">
                     {{ student.seq }}
@@ -45,14 +62,19 @@
                 
                 <div class="p-4 bg-gray-50 border-t border-gray-200">
                     <div class="flex justify-center gap-4">
-                        <a :href="student.docUrl" class="flex-1 bg-blue-600 hover:bg-blue-700 text-white text-center font-bold py-2 px-4 rounded-full transition duration-300" target="_blank" download>
+                        <a :href="student.docUrl" class="flex-1 bg-blue-600 hover:bg-blue-700 text-white text-center font-bold py-2 px-4 rounded-full transition duration-300" download>
                             DOC
                         </a>
-                        <a :href="student.pdfUrl" class="flex-1 bg-red-600 hover:bg-red-700 text-white text-center font-bold py-2 px-4 rounded-full transition duration-300" target="_blank" download>
+                        <a :href="student.pdfUrl" class="flex-1 bg-red-600 hover:bg-red-700 text-white text-center font-bold py-2 px-4 rounded-full transition duration-300" download>
                             PDF
                         </a>
                     </div>
                 </div>
+            </div>
+
+            <div v-if="filteredStudents.length === 0" class="col-span-full text-center text-gray-500 py-10">
+                <h3 class="text-xl font-semibold">ไม่พบข้อมูล</h3>
+                <p>"{{ searchQuery }}"</p>
             </div>
 
         </div>
@@ -66,25 +88,51 @@
         import { createApp } from 'https://unpkg.com/vue@3/dist/vue.esm-browser.js';
 
         createApp({
+            // 3.1 เพิ่ม searchQuery: '' ใน data
             data() {
                 return {
-                    // ฐานข้อมูลนักศึกษา
+                    searchQuery: '', // ตัวแปรสำหรับเก็บค่าที่พิมพ์ในช่องค้นหา
                     students: [
-                        // ========== นี่คือส่วนที่อัปเดตแล้ว ==========
-                        { seq: 1, id: '๖๘๐๙๑๐๕๐๐๘', name: 'พระบุญเสร็จ มีแก้ว (จนฺทสาโร)', title: 'การปรับใช้หลักไตรสิกขาในการดำเนินชีวิตของผู้สูงอายุ...', docUrl: 'files/6809105008.docx', pdfUrl: 'files/6809105008.pdf' },
-                        { seq: 2, id: '๖๘๐๙๑๐๕๐๐๓', name: 'พระมหาศิริพงศ์ ไกรสรพันธ์ (จนฺทปาโมชฺโช)', title: 'กระบวนการเผยแผ่พุทธธรรมผ่านสื่อออนไลน์...', docUrl: 'files/6809105003.docx', pdfUrl: 'files/6809105003.pdf' },
-                        { seq: 3, id: '๖๘๐๙๑๐๕๐๑๐', name: 'พระมหาปราชญ์ ก้อนเพชร (ชาคโร)', title: 'ศึกษาจริยธรรมเชิงพุทธในการใช้เทคโนโลยีปัญญาประดิษฐ์', docUrl: 'files/6809105010.docx', pdfUrl: 'files/6809105010.pdf' },
-                        { seq: 4, id: '๖๘๐๙๑๐๕๐๐๔', name: 'พระครูพิพัฒน์กิจจานุรักษ์ นวลคนึง (สีลสํวโร)', title: 'การเปรียบเทียบบทบาทพระอินทร์ในพระพุทธศาสนา...', docUrl: 'files/6809105004.docx', pdfUrl: 'files/6809105004.pdf' },
-                        { seq: 5, id: '๖๘๐๙๑๐๕๐๑๓', name: 'นางอัจฉรา มาอินทร์', title: 'การพัฒนาภาวะผู้นำเชิงจริยธรรมของผู้บริหารสถานศึกษา...', docUrl: 'files/6809105013.docx', pdfUrl: 'files/6809105013.pdf' },
-                        { seq: 6, id: '๖๘๐๙๑๐๕๐๐๑', name: 'พระศักดิ์สิทธิ์ ศรีสุข (พุทฺธปุตฺโต)', title: 'แนวทางปฏิบัติวิปัสสนากัมมัฏฐาน ตามหลักสติปัฏฐาน ๔...', docUrl: 'files/6809105001.docx', pdfUrl: 'files/6809105001.pdf' },
-                        { seq: 7, id: '๖๘๐๙๑๐๕๐๐๗', name: 'พระสุรกาญจน์ สุทธิดี (โชติปญฺโญ)', title: 'สมาธิในพุทธศาสนาเถรวาทกับการพัฒนาปัญญา', docUrl: 'files/6809105007.docx', pdfUrl: 'files/6809105007.pdf' },
-                        { seq: 8, id: '๖๘๐๙๑๐๕๐๐๒', name: 'พระอธิการประเสริฐ จันทอง (ปภาโส)', title: 'รูปแบบการจัดการภูมิปัญญาท้องถิ่นของชาวพุทธ...', docUrl: 'files/6809105002.docx', pdfUrl: 'files/6809105002.pdf' },
-                        { seq: 9, id: '๖๘๐๙๑๐๕๐๐๕', name: 'พระครูวินัยธรโกมินทร์ เตียแอก (สุโกวิโท)', title: 'อิทธิพลของเทคโนโลยีดิจิทัลในการสืบสานหลักธรรม...', docUrl: 'files/6809105005.docx', pdfUrl: 'files/6809105005.pdf' },
-                        { seq: 10, id: '๖๘๐๙๑๐๕๐๑๑', name: 'พระพิเรศ เข้าเมือง (พุทฺธญาโณ)', title: '"ต้นแบบการพัฒนาวัดอุทยานการศึกษาของคณะสงฆ์..."', docUrl: 'files/6809105011.docx', pdfUrl: 'files/6809105011.pdf' }
+                        { seq: 1, id: '6809105008', name: 'พระบุญเสร็จ มีแก้ว (จนฺทสาโร)', title: 'การปรับใช้หลักไตรสิกขาในการดำเนินชีวิตของผู้สูงอายุ...', docUrl: 'files/6809105008.docx', pdfUrl: 'files/6809105008.pdf' },
+                        { seq: 2, id: '6809105003', name: 'พระมหาศิริพงศ์ ไกรสรพันธ์ (จนฺทปาโมชฺโช)', title: 'กระบวนการเผยแผ่พุทธธรรมผ่านสื่อออนไลน์...', docUrl: 'files/6809105003.docx', pdfUrl: 'files/6809105003.pdf' },
+                        { seq: 3, id: '6809105010', name: 'พระมหาปราชญ์ ก้อนเพชร (ชาคโร)', title: 'ศึกษาจริยธรรมเชิงพุทธในการใช้เทคโนโลยีปัญญาประดิษฐ์', docUrl: 'files/6809105010.docx', pdfUrl: 'files/6809105010.pdf' },
+                        { seq: 4, id: '6809105004', name: 'พระครูพิพัฒน์กิจจานุรักษ์ นวลคนึง (สีลสํวโร)', title: 'การเปรียบเทียบบทบาทพระอินทร์ในพระพุทธศาสนา...', docUrl: 'files/6809105004.docx', pdfUrl: 'files/6809105004.pdf' },
+                        { seq: 5, id: '6809105013', name: 'นางอัจฉรา มาอินทร์', title: 'การพัฒนาภาวะผู้นำเชิงจริยธรรมของผู้บริหารสถานศึกษา...', docUrl: 'files/6809105013.docx', pdfUrl: 'files/6809105013.pdf' },
+                        { seq: 6, id: '6809105001', name: 'พระศักดิ์สิทธิ์ ศรีสุข (พุทฺธปุตฺโต)', title: 'แนวทางปฏิบัติวิปัสสนากัมมัฏฐาน ตามหลักสติปัฏฐาน ๔...', docUrl: 'files/6809105001.docx', pdfUrl: 'files/6809105001.pdf' },
+                        { seq: 7, id: '6809105007', name: 'พระสุรกาญจน์ สุทธิดี (โชติปญฺโญ)', title: 'สมาธิในพุทธศาสนาเถรวาทกับการพัฒนาปัญญา', docUrl: 'files/6809105007.docx', pdfUrl: 'files/6809105007.pdf' },
+                        { seq: 8, id: '6809105002', name: 'พระอธิการประเสริฐ จันทอง (ปภาโส)', title: 'รูปแบบการจัดการภูมิปัญญาท้องถิ่นของชาวพุทธ...', docUrl: 'files/6809105002.docx', pdfUrl: 'files/6809105002.pdf' },
+                        { seq: 9, id: '6809105005', name: 'พระครูวินัยธรโกมินทร์ เตียแอก (สุโกวิโท)', title: 'อิทธิพลของเทคโนโลยีดิจิทัลในการสืบสานหลักธรรม...', docUrl: 'files/6809105005.docx', pdfUrl: 'files/6809105005.pdf' },
+                        { seq: 10, id: '6809105011', name: 'พระพิเรศ เข้าเมือง (พุทฺธญาณ)', title: '"ต้นแบบการพัฒนาวัดอุทยานการศึกษาของคณะสงฆ์..."', docUrl: 'files/6809105011.docx', pdfUrl: 'files/6809105011.pdf' }
                     ]
                 }
+            },
+            
+            // 3.2 เพิ่มส่วน 'computed' เพื่อประมวลผลการค้นหา
+            computed: {
+                filteredStudents() {
+                    // ถ้าช่องค้นหาว่างเปล่า, ให้แสดงนักศึกษาทั้งหมด
+                    if (!this.searchQuery) {
+                        return this.students;
+                    }
+                    
+                    // แปลงคำค้นหาเป็นตัวพิมพ์เล็ก (เพื่อค้นหาแบบไม่สนตัวใหญ่/เล็ก)
+                    const query = this.searchQuery.toLowerCase();
+                    
+                    // กรองข้อมูลใน 'students'
+                    return this.students.filter(student => {
+                        const name = student.name.toLowerCase();
+                        const title = student.title.toLowerCase();
+                        const id = student.id.toLowerCase();
+                        
+                        // คืนค่า true (แสดงการ์ด) ถ้าคำค้นหาอยู่ใน:
+                        // 1. รหัสนิสิต (id)
+                        // 2. ชื่อ (name)
+                        // 3. ชื่อเรื่อง (title)
+                        return name.includes(query) || title.includes(query) || id.includes(query);
+                    });
+                }
             }
-        }).mount('#app'); // สั่งให้ Vue เริ่มทำงาน
+        }).mount('#app');
     
     </script>
 
